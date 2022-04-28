@@ -21,20 +21,19 @@ import javax.sql.DataSource;
  * @Date 2021/6/4
  */
 @ComponentScan("com.share.mybatis")
-//@Import(MapperBeanDefinitionRegistry.class)
+@Import(MapperBeanDefinitionRegistry.class)
 @MapperScan("com.share.mybatis")
 @Configuration
-@Transactional(propagation = Propagation.MANDATORY)
-@EnableTransactionManagement
+//@Transactional(propagation = Propagation.MANDATORY)
+//@EnableTransactionManagement
 public class MapperConfig {
-
 
 	@Bean
 	public DataSource dataSource(){
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setUrl("jdbc:mysql://192.168.62.128:3306/mybatis-test?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&autoReconnectForPools=true&useSSL=false&serverTimezone=Hongkong&allowMultiQueries=true");
+		dataSource.setUrl("jdbc:mysql://116.62.223.130:3306/mybatis-test?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&autoReconnectForPools=true&useSSL=false&serverTimezone=Hongkong&allowMultiQueries=true");
 		dataSource.setUsername("root");
-		dataSource.setPassword("Wj199585_");
+		dataSource.setPassword("Wj@123..*");
 		return dataSource;
 	}
 
@@ -45,10 +44,10 @@ public class MapperConfig {
 		return factoryBean;
 	}
 
-	@Bean
-	public PlatformTransactionManager platformTransactionManager(DataSource dataSource){
-		DataSourceTransactionManager transactionManager = new DataSourceTransactionManager();
-		transactionManager.setDataSource(dataSource);
-		return transactionManager;
-	}
+//	@Bean
+//	public PlatformTransactionManager platformTransactionManager(DataSource dataSource){
+//		DataSourceTransactionManager transactionManager = new DataSourceTransactionManager();
+//		transactionManager.setDataSource(dataSource);
+//		return transactionManager;
+//	}
 }

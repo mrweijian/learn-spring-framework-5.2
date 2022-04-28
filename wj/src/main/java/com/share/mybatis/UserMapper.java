@@ -1,7 +1,8 @@
 package com.share.mybatis;
 
-import org.apache.ibatis.annotations.Insert;
-import org.springframework.stereotype.Component;
+import com.share.mybatis.annotation.Insert;
+import com.share.mybatis.annotation.Select;
+import com.share.mybatis.domain.UserInfo;
 
 /**
  * @ClassName UserMapper
@@ -10,9 +11,9 @@ import org.springframework.stereotype.Component;
  */
 public interface UserMapper {
 
+	@Select("select * from user_info where id=?")
+	UserInfo selectById(String id);
 
-	void selectById();
-
-	@Insert("")
-	void insertUser();
+	@Insert("insert into user_info values(?,?,?)")
+	void insertUser(UserInfo userInfo);
 }

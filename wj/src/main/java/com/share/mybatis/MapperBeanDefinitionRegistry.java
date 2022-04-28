@@ -16,13 +16,15 @@ import java.util.List;
  * @Author weijian
  * @Date 2021/6/4
  */
-@Component
 public class MapperBeanDefinitionRegistry implements ImportBeanDefinitionRegistrar {
 	@Override
 	public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry, BeanNameGenerator importBeanNameGenerator) {
+
+		// 模拟扫描出的mapper接口
+
+
 		List<Class> list = new ArrayList<>();
 		list.add(UserMapper.class);
-		list.add(OderMapper.class);
 		for (Class aClass : list) {
 			AbstractBeanDefinition beanDefinition = BeanDefinitionBuilder.genericBeanDefinition().getBeanDefinition();
 			beanDefinition.setBeanClass(MapperBeanFactory.class);

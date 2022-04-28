@@ -1,5 +1,6 @@
 package com.share.mybatis;
 
+import com.share.mybatis.domain.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -14,11 +15,11 @@ public class UserServer {
 	@Autowired
 	private UserMapper userMapper;
 
-	@Autowired
-	private OderMapper oderMapper;
+	public UserInfo select(String id) {
+		return userMapper.selectById(id);
+	}
 
-	public void test(){
-		userMapper.selectById();
-		oderMapper.selectAll();
+	public void insert(UserInfo userInfo) {
+		userMapper.insertUser(userInfo);
 	}
 }
